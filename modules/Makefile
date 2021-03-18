@@ -27,11 +27,11 @@ cb-start:
 
 # Run all tests
 tests:
-	@cd test && npm install
+	@cd test && npm install --silent
 	@docker exec -t cb-test bin/bash -c "cd modules && bats -T ./test"
 
 # Run a single test.
-# i.e make TEST_NAME="Analytics" single-test
+# i.e make TEST_NAME="Analytics.java" single-test
 single-test:
 	@cd test && npm install
 	@docker exec -t cb-test bin/bash -c "cd modules && bats -T ./test -f ${TEST_NAME}"

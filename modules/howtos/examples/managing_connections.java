@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
 import com.couchbase.client.core.env.Authenticator;
 import com.couchbase.client.core.env.PasswordAuthenticator;
 import com.couchbase.client.core.env.SeedNode;
@@ -23,12 +29,6 @@ import com.couchbase.client.java.ClusterOptions;
 import com.couchbase.client.java.Collection;
 import com.couchbase.client.java.Scope;
 import com.couchbase.client.java.env.ClusterEnvironment;
-
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
 
 public class managing_connections {
 
@@ -67,7 +67,7 @@ public class managing_connections {
 
 	public void managing_connections_8() throws Exception { // file: howtos/pages/managing-connections.adoc line: 242
 		// tag::managing_connections_8[]
-		Cluster cluster = Cluster.connect("127.0.0.1", "username", "password");
+		Cluster cluster = Cluster.connect("127.0.0.1", "Administrator", "password");
 		cluster.waitUntilReady(Duration.ofSeconds(10));
 		Bucket bucket = cluster.bucket("travel-sample");
 		Collection collection = bucket.defaultCollection();
@@ -76,7 +76,7 @@ public class managing_connections {
 
 	public void managing_connections_9() throws Exception { // file: howtos/pages/managing-connections.adoc line: 252
 		// tag::managing_connections_9[]
-		Cluster cluster = Cluster.connect("127.0.0.1", "username", "password");
+		Cluster cluster = Cluster.connect("127.0.0.1", "Administrator", "password");
 		cluster.waitUntilReady(Duration.ofSeconds(10));
 		Bucket bucket = cluster.bucket("travel-sample");
 		Collection collection = bucket.defaultCollection();

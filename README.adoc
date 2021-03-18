@@ -72,7 +72,7 @@ CONTAINER ID   IMAGE                          COMMAND                  CREATED  
 6fe1830a205a   couchbase:cb7-sdk3-java-ub20   "/entrypoint.sh couc…"   About an hour ago   Up About an hour   11207/tcp, 11210-11211/tcp, 0.0.0.0:8091-8096->8091-8096/tcp, 18091-18096/tcp   cb-test
 ```
 
-- Once the container is up you can run `make TEST_NAME="StartUsing" single-test` to run an individual test.
+- Once the container is up you can run `make TEST_NAME="StartUsing.java" single-test` to run an individual test.
 
 - You should expect to see the following output in your shell:
 ```
@@ -114,11 +114,6 @@ The assertion will fail if the string is not found.
 
 Note that it will not always be necessary to assert the output of your code sample, in those cases just using `assert_success` will be enough.
 
-<<<<<<< HEAD
-=======
-If you want to run all the code sample tests you can also execute `make tests`.
-
->>>>>>> Setup test automation for Java SDK
 === CI - Github Actions
 When submitting a PR, the code sample tests will run against your changes in the same manner as your local machine using Github Actions. 
 

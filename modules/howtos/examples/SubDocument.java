@@ -16,6 +16,26 @@
 
 // tag::imports[]
 
+import static com.couchbase.client.java.kv.LookupInSpec.exists;
+import static com.couchbase.client.java.kv.LookupInSpec.get;
+import static com.couchbase.client.java.kv.MutateInOptions.mutateInOptions;
+import static com.couchbase.client.java.kv.MutateInSpec.arrayAddUnique;
+import static com.couchbase.client.java.kv.MutateInSpec.arrayAppend;
+import static com.couchbase.client.java.kv.MutateInSpec.arrayInsert;
+import static com.couchbase.client.java.kv.MutateInSpec.arrayPrepend;
+import static com.couchbase.client.java.kv.MutateInSpec.decrement;
+import static com.couchbase.client.java.kv.MutateInSpec.increment;
+import static com.couchbase.client.java.kv.MutateInSpec.insert;
+import static com.couchbase.client.java.kv.MutateInSpec.remove;
+import static com.couchbase.client.java.kv.MutateInSpec.upsert;
+// end::imports[]
+
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
 import com.couchbase.client.core.error.CasMismatchException;
 import com.couchbase.client.core.error.DurabilityImpossibleException;
 import com.couchbase.client.core.error.subdoc.PathExistsException;
@@ -34,29 +54,10 @@ import com.couchbase.client.java.kv.MutateInSpec;
 import com.couchbase.client.java.kv.MutationResult;
 import com.couchbase.client.java.kv.PersistTo;
 import com.couchbase.client.java.kv.ReplicateTo;
+
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
-import static com.couchbase.client.java.kv.LookupInSpec.exists;
-import static com.couchbase.client.java.kv.LookupInSpec.get;
-import static com.couchbase.client.java.kv.MutateInOptions.mutateInOptions;
-import static com.couchbase.client.java.kv.MutateInSpec.arrayAddUnique;
-import static com.couchbase.client.java.kv.MutateInSpec.arrayAppend;
-import static com.couchbase.client.java.kv.MutateInSpec.arrayInsert;
-import static com.couchbase.client.java.kv.MutateInSpec.arrayPrepend;
-import static com.couchbase.client.java.kv.MutateInSpec.decrement;
-import static com.couchbase.client.java.kv.MutateInSpec.increment;
-import static com.couchbase.client.java.kv.MutateInSpec.insert;
-import static com.couchbase.client.java.kv.MutateInSpec.remove;
-import static com.couchbase.client.java.kv.MutateInSpec.upsert;
-// end::imports[]
-
-class SubDocument {
+public class SubDocument {
   static Collection collection;
 
   public static void main(String... args) {
