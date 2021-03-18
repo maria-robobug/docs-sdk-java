@@ -114,6 +114,11 @@ The assertion will fail if the string is not found.
 
 Note that it will not always be necessary to assert the output of your code sample, in those cases just using `assert_success` will be enough.
 
+<<<<<<< HEAD
+=======
+If you want to run all the code sample tests you can also execute `make tests`.
+
+>>>>>>> Setup test automation for Java SDK
 === CI - Github Actions
 When submitting a PR, the code sample tests will run against your changes in the same manner as your local machine using Github Actions. 
 
