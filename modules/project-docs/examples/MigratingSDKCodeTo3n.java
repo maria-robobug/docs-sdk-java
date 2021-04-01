@@ -50,7 +50,7 @@ public class MigratingSDKCodeTo3n {
 
   public void migrating_sdk_code_to_3_n_1() throws Exception { // file: project-docs/pages/migrating-sdk-code-to-3.n.adoc line: 23
     // tag::migrating_sdk_code_to_3_n_1[]
-    GetResult getResult = collection.get("key", getOptions().timeout(Duration.ofSeconds(3)));
+    GetResult getResult = collection.get("airline_10", getOptions().timeout(Duration.ofSeconds(3)));
     // end::migrating_sdk_code_to_3_n_1[]
   }
 
@@ -74,7 +74,7 @@ public class MigratingSDKCodeTo3n {
 
   public void migrating_sdk_code_to_3_n_22() throws Exception { // file: project-docs/pages/migrating-sdk-code-to-3.n.adoc line: 492
     // tag::migrating_sdk_code_to_3_n_22[]
-    QueryResult queryResult = cluster.query("select 1=");
+    QueryResult queryResult = cluster.query("select 1=1");
     if (!queryResult.metaData().warnings().isEmpty()) {
       // errors contain [{"msg":"syntax error - at end of input","code":3000}]
     }
