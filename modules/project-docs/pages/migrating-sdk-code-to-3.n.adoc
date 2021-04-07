@@ -630,6 +630,15 @@ com.couchbase.client.core.error.ViewNotFoundException: The queried view is not f
 
 ----
 
+In SDK 3 `ViewQuery` no longer supports the `includeDocs()` method that enables you to automatically load the full document for the row returned. This is to simplify the View API and provide flexibility in how users can load documents. You will now need to fetch documents in a separate request.
+
+We recommend using a reactive approach as the most efficient way to get a document:
+
+[source,java]
+----
+include::example$MigratingSDKCodeTo3n.java[tag=viewquery-fetch-docs,indent=0]
+----
+
 === Management APIs
 
 In SDK 2, the management APIs were centralized in the `ClusterManager` at the cluster level and the `BucketManager` at the bucket level. 
